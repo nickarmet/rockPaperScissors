@@ -2,84 +2,25 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<div id='score'>
+		<h1>Scoreboard</h1>
+		<p id="match">Click a button!</p>
+		<p id='pScore'>Player Score:</p>
+		<p id='cScore'>Computer Score:</p>
+	</div>
+	<div id='buttons'>
+		<button value="rock">Rock</button>
+		<button value="paper">Paper</button>
+		<button value="scissors">Scissors</button>
+	</div>
+	<div>
+		<p id='winner'></p>
+	</div>
 
-	<script type="text/javascript">
-
-
-	function game() {
-
-	    function playRound() {
-
-	    	let playerScore = 0;
-	    	let computerScore = 0;
-	    	let rounds = 0;
-
-	    	for(let i = 0; i < 5; i++) {
-
-	    	let playerSelection = playerPlay();
-			let computerSelection = computerPlay();
-	    
-		    	if(playerSelection === computerSelection) {
-		    	    rounds += 1;
-		    		console.log("Tie!");
-		    	} else if(playerSelection === 'rock' && computerSelection === 'paper') {
-		    	    rounds += 1;
-		    	    computerScore += 1;
-		    		console.log("You lose the round! Paper beats rock.");
-		    	} else if(playerSelection === 'rock' && computerSelection === 'scissors') {
-		    	    rounds += 1;
-		    	    playerScore += 1;
-		    		console.log("You win the round! Rock beats scissors.");
-		    	} else if(playerSelection === 'paper' && computerSelection === 'rock') {
-		    	    rounds += 1;
-		    	    playerScore += 1;
-		    		console.log("You win the round! Paper beats rock.");
-		    	} else if(playerSelection === 'paper' && computerSelection === 'scissors') {
-		    	    rounds += 1;
-		    	    computerScore += 1;
-		    	    console.log("You lose the round! Scissors beats paper.");
-		    	} else if(playerSelection === 'scissors' && computerSelection === 'rock') {
-		    	    rounds += 1;
-		    	    computerScore += 1;
-		    		console.log("You lose the round! Rock beats scissors.");
-		    	} else if(playerSelection === 'scissors' && computerSelection === 'paper') {
-		    	    rounds += 1;
-		    	    playerScore += 1;
-		    		console.log("You win the round! Paper beats scissors.");
-		    	} else {
-		    		console.log("Please play the game as intended.");
-		    	}
-		    }
-
-		    if(playerScore > computerScore) {
-		    	console.log("You win the game!", "Your score: " + playerScore, "Computer score: " + computerScore)
-			} else if(computerScore > playerScore) {
-				console.log("The computer wins the game!", "Your score: " + playerScore, "Computer score: " + computerScore)
-			} else {
-				console.log("You tied the computer!", "Your score: " + playerScore, "Computer score: " + computerScore)
-			}
-	    }
-
-		function playerPlay() {
-		    let playerSelection = prompt("Rock, paper, or scissors?");
-		    return playerSelection.toLowerCase();
-		}
-
-		function computerPlay() {
-			let arr = ['rock', 'paper', 'scissors'];
-			let computerSelection = arr[Math.floor(Math.random() * arr.length)];
-			return computerSelection.toLowerCase();
-		}
-
-	    playRound();
-	
-	}
-
-	game();
-
-	</script>
-
+<script type="text/javascript" src="refactoring.js"></script>
 </body>
 </html>
